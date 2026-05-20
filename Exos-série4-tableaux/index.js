@@ -79,7 +79,7 @@ console.log(paires);
 
 */
 
-/*Exercice 7*/
+/*Exercice 7
 function compterProprietes(objet) { //fonction de l'exo 
     let compteur = 0; //à partir de 0
     for (let cle in objet){ //boucle
@@ -93,3 +93,27 @@ const utilisateur = { //listing de mes propriétés
     age:27
 };
 console.log(compterProprietes(utilisateur)); //affiche 3 en résultat
+
+*/
+
+/*Exercice 8
+
+let produits = [ //tableau de l'exo
+    {nom:"Stylo", prix:2},
+    {nom:"Cahier", prix:5},
+    {nom:"Gomme", prix:1}
+];
+
+function extraireNoms(produits) { //fonction de l'exo
+return produits.map(produit=>produit.nom) //.map parcours un tableau du début à la fin, en fabrique un nouveau avec des valeurs transformées (ne modifie pas celui d'origine). La flèche permet de prendre le produit et de retourner uniquement la propriété nom. 
+}
+
+console.log(extraireNoms(produits)); //resultat
+
+*/
+
+/*Exercice 9*/
+function factorielle(n) {
+
+}
+console.log(factorielle)
