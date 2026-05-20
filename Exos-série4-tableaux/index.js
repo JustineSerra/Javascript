@@ -112,8 +112,27 @@ console.log(extraireNoms(produits)); //resultat
 
 */
 
-/*Exercice 9*/
+/*Exercice 9
 function factorielle(n) {
-
+let resultat=1;
+    for(let i=1;i<=n;i++) {
+    resultat=resultat*i;
+    }
+    return resultat;
 }
-console.log(factorielle)
+console.log(factorielle(5));
+
+*/
+
+/*Exercice 10
+function estTrie(tableau) {
+    for (let i=0; i<tableau.length-1;i++) {
+        if (tableau[i]>tableau[i+1]){
+            return false;
+        }
+    }
+    return true;
+}
+console.log(estTrie([3,5,8,10,2])); //false dans ce cas car pas dans l'ordre croissant à cause du 2
+
+*/
