@@ -249,12 +249,10 @@ console.log(`Nombre de tirages nécessaires:${compteurTirages}`);
 
 */
 
-/*Exercice 22
+/*Exercice 22*/
 const maintenant = new Date();
 const dateDuJour = maintenant.toLocaleDateString ('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
 const heureDuJour = maintenant.toLocaleTimeString ('fr-FR', { hour: '2-digit', minute: '2-digit' });
 console.log(`Aujourd'hui nous sommes le ${dateDuJour} et il est ${heureDuJour}.`);
 //toLocaleTimeString() et toLocaleDateString() leur rôle est d'adapter l'affichage de la date et de l'heure en fonction de sa région du monde (locale). 'fr-FR' indique qu'on veut le format français de date.
 //
-
-*/
