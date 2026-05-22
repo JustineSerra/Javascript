@@ -83,5 +83,21 @@ console.log("Fruits en rupture:", rupture);
 
 */
 
-/*Exercice 6*/ 
-const nums = [];
+/*Exercice 6
+const nums = []; //donné par l'exo
+for (let i=0; i<20; i++){ //rempli le tableau de 20 nombres aléatoires entiers
+    const nombreAleatoire=Math.floor(Math.random()*30)+1; //de 1 à 30
+    nums.push(nombreAleatoire);
+}
+console.log("Tableau initial:",[...nums]); //on voit les chiffres tirés au hasard
+for (let i =0;i<nums.length;i++) {
+    if (nums[i]%4===0 || nums[i]%6===0) { //si le nombre est multiple de 4 ou de 6
+        nums[i]*=2; //alors multiplie le par 2
+    }
+    else if (!(nums[i]%2===0)) { //sinon si le nombre n'est pas pair
+        nums[i]=1; //remplace le par 1
+    }
+}
+console.log("Tableau final:",nums); 
+
+*/ 
