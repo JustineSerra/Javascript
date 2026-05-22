@@ -144,6 +144,41 @@ console.log("Ignorés:",ignores);
 */
 
 /*Exercice 9*/
+const mot="kayak"; //donné par l'exo
+
+const chars=[]; //également
+for (let i=0; i<mot.length; i++) { //boucle 
+    chars.push(mot[i]);
+}
+const inverse= [];
+for (let i=chars.length-1; i>=0;i--) {
+    inverse.push(chars[i]);
+}
+let palindrome=true; //on dit qu'elle est vraie
+for (let i=0;i<chars.length;i++) {
+    if (chars[i] !== inverse[i] || !chars[i]) {
+        palindrome=false;
+        break; //la boucle s'arrête si c'est faux
+    }
+}
+if (palindrome) {
+    console.log(`Le mot "${mot}" est un palindrome!`);
+} else {
+    console.log(`Le mot "${mot}" n'est pas un palindrome.`);
+}
 
 
-/*Exercice 10*/ 
+
+/*Exercice 10
+const grilles =[[1,2,3], [4,5,6], [7,8,9]]; //donné par l'exo
+let somme=0; //également
+for (const tableau of grilles) { //parcours chaque sous tableau puis chaque nombre
+    for (const nombre of tableau) {
+        if ((nombre%2 ===0 && nombre>=4)||(nombre%2 !==0 && nombre<=5)) {
+            somme +=nombre; //somme=somme+   nombre
+        }
+    }
+}
+console.log("Somme:",somme);
+
+*/
