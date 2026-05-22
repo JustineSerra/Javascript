@@ -101,3 +101,21 @@ for (let i =0;i<nums.length;i++) {
 console.log("Tableau final:",nums); 
 
 */ 
+
+/*Exercice 7
+const o1={a:1, b:2, c:3}; //donné par l'exo 
+const o2={b:4, c:3, d:5};
+const fusion={};
+
+for (const cle in o1) { //copie les paires clés de o1 dans fusion
+    fusion[cle]=o1[cle];
+}
+for (const cle in o2) {
+    if (!(cle in fusion)||fusion[cle]!==o2[cle]) {
+        fusion [cle]=o2[cle];
+    }
+}
+
+console.log(fusion);
+
+*/
