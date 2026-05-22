@@ -11,18 +11,77 @@ console.log(multiples);
 
 */
 
-/*Exercice 2*/
-const notes = [15,-3,12,0,19,22,8];
-const valides = [];
-let i =0;
-while (i<notes.length) {
+/*Exercice 2
+const notes = [15,-3,12,0,19,22,8]; //donné par l'exo
+const valides = []; //donné par l'exo
+let i =0; //on part de 0
+while (i<notes.length) { //boucle
     const noteActuelle=notes[i];
-    if (noteActuelle>0 && noteActuelle<20) {
+    if (noteActuelle>0 && noteActuelle<20) { //si les deux conditions sont vraies alors le .push ajoute la note dans le tableau valides.
         valides.push(noteActuelle);
     }
-    i++;
+    i++; //on passe à la note suivante
 }
 console.log("Tableau des notes valides:", valides);
 
-const elementEcartes=notes.length-valides.length;
+const elementEcartes=notes.length-valides.length; //soustraction pour trouver les notes écartées
 console.log("Nombre d'éléments écartés:", elementEcartes);
+
+*/
+
+/*Exercice 3
+const users = { //donné par l'exo
+    alice:18,
+    bob:25,
+    charlie:17,
+    dave:30
+};
+let Compteur =0; //on commence à 0
+for (const name in users) { //début de la boucle
+    const age = users[name]; //récupère l'age associé au prénom
+
+    if (age>=18 && age!==25) { //condition donné par l'exo
+        console.log(name);
+        Compteur++; //ajoute +1 à la variable Compteur 
+    }
+    else { //si la condition n'est pas respectée alors 
+    console.log("Accès refusé:"+name); //Accès refusé + prénom en question
+    }
+}
+console.log("Nombre total d'accès accordés:"+Compteur); //Total accès accordés:2
+
+*/
+
+/*Exercice 4
+const nombres=[2,7,10,21,14,3]; //donné par l'exo
+const resultats=[]; //donné par l'exo
+let somme=0; //on commence à 0
+for (const n of nombres) { //donné par l'exo
+    if ((n%2===0 && n>5) || (n%2!==0 && n<10)) { //condition de l'exo
+        somme+=n; //somme=somme+n
+        resultats.push(n); //ajoute le nombre valide au tableau resultats
+    }
+}
+console.log("Somme:",somme);
+console.log("Tableau résultats:", resultats);
+
+*/
+
+/*Exercice 5
+const stock={ pommes:4, bananes:0, poires:3, mangues:1};
+const rupture=[];
+for (const fruit in stock) {
+        while (stock[fruit]>0) {
+        stock[fruit]--; //on enlève 1
+        console.log(`${fruit}:${stock[fruit]}`); //affiche le stock mis à jour
+    }
+        if (stock[fruit]===0 && !rupture.includes(fruit)) { 
+            rupture.push(fruit); //ajoute le fruit au tableau
+        }
+}
+console.log("Fruits en rupture:", rupture); 
+
+*/
+
+/*Exercice 6*/ 
+const nums = [];
