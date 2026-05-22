@@ -119,3 +119,31 @@ for (const cle in o2) {
 console.log(fusion);
 
 */
+
+/*Exercice 8
+const produits=[ //donné par l'exo
+    {nom: "stylo", prix:1.2, dispo:true},
+    {nom:"cahier", prix:2.5, dispo:false},
+    {nom: "crayon", prix:0.8, dispo:true},
+    {nom: "gomme", prix:0.5, dispo:true}
+];
+const achats=[]; //initialisation des tableaux pour mettre les noms 
+const ignores=[];
+
+for (const produit of produits) { //la boucle demandée
+    if (produit.dispo===true && produit.prix<2) { 
+        achats.push(produit.nom); //si les 2 conditions sont respectées alors ça le pousse dans achats
+    }
+    else if (!produit.dispo||produit.prix>=2) {
+        ignores.push(produit.nom); //sinon dans ignore
+    }
+}
+console.log("Achats:", achats);
+console.log("Ignorés:",ignores);
+
+*/
+
+/*Exercice 9*/
+
+
+/*Exercice 10*/ 
