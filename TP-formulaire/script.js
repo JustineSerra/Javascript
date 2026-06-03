@@ -69,5 +69,108 @@ zoneProfil.style.backgroundColor = couleur;
 }
 });
 
-// Etape 4 : Chargement automatique 
+// Etape 5 : Cookie "dernière visite"
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const cookies = document.cookie;
+//on récupère les cookies de la page.
+
+let dateDerniereVisite = null;
+//variable pour stocker la date de la dernière visite.
+
+if (cookies) {
+    const listeCookies = cookies.split("; ");
+    //sépare les cookies en un tableau de paires clé-valeur.
+
+    for (let i = 0; i < listeCookies.length; i++) {
+        if (listeCookies[i].startsWith("derniereVisite=")) {
+            dateDerniereVisite = listeCookies[i].split("=")[1];
+            break;
+            //si on trouve le cookie "derniereVisite", on extrait sa valeur (la date) et on sort de la boucle.
+        }
+    }
+}
+
+const welcome = document.getElementById("welcome");
+//on récupère la div où sera affiché le message de bienvenue.
+
+if (dateDerniereVisite) {
+    welcome.textContent = `Votre dernière visite était le ${decodeURIComponent(dateDerniereVisite)}.`;
+    //si la date de la dernière visite est trouvée, on affiche un message de bienvenue avec cette date.
+} else {
+    welcome.textContent="C'est votre première visite, bienvenue !"
+    //si le cookie est absent on affiche le texte de première visite
+}
+
+const dateActuelle = new Date ().toLocaleString();
+//récupération de la date du jour 
+
+const dateExpiration = new Date();
+dateExpiration.setDate(dateExpiration.getDate()+7);
+//date d'expiration à J+7 
+
+document.cookie = `derniereVisite=${encodeURIComponent(dateActuelle)};expires=${dateExpiration.toUTCString()}; path=/; SameSite=Lax`;
+//evite les bugs avec les espaces et accents
+
+//Etape 4 : Chargement automatique 
+   
+    const profilStocke = localStorage.getItem("profil");
+    //récupération des données du profil stockées dans le localStorage.
+
+    if (profilStocke){
+        const profil = JSON.parse(profilStocke);
+        //conversion du texte JSON en objet JavaScript.
+
+        document.getElementById("nom").value = profil.nom;
+        document.getElementById("email").value = profil.email;
+        document.getElementById("couleur").value = profil.couleur;
+        //remplissage automatique du formulaire avec les données sauvegardées.
+
+        const zoneProfil = document.getElementById("profil");
+        //Afficher directement le profil dans la div #profil
+        
+        zoneProfil.textContent="";
+        //on vide la zone de profil par sécurité 
+
+        const pNom = document.createElement("p");
+        pNom.textContent = `Bonjour ${profil.nom}`;
+        zoneProfil.appendChild(pNom);
+        //nouvelle balise de paragraphe créée pour afficher le nom de l'utilisateur, puis ajoutée à la zone de profil.
+
+        const pEmail = document.createElement("p");
+        pEmail.textContent = `Votre email est : ${profil.email}`;
+        zoneProfil.appendChild(pEmail);
+        //nouvelle balise de paragraphe créée pour afficher l'email de l'utilisateur, puis ajoutée à la zone de profil.
+
+        zoneProfil.style.backgroundColor = profil.couleur;
+        //réapplication de la couleur choisie par l'utilisateur en background de la zone de profil.
+    }
+});
+
+// Etape 6 : Reset 
+
+document.getElementById("reset").addEventListener("click", function(){
+//écoute de l'événement "click" sur le bouton d'ID "reset"
+
+    localStorage.removeItem("profil");
+    //supprime la clé "profil" stockée dans le localStorage
+    document.cookie="derniereVisite=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+    //supprime le cookie "dernière visite" en le forçant à exprier instantanément
+    document.getElementById("profilForm").reset();
+    //on réinitialise tous les champs du formulaire (vide)
+
+    const zoneProfil = document.getElementById("profil"); 
+    zoneProfil.textContent = "";
+    zoneProfil.style.backgroundColor="transparent";
+
+    document.getElementById("erreur").textContent="";
+    //on efface les anciens messages d'erreur 
+
+    location.reload() 
+    //recharge la page pour réinitialiser l'affichage complet
+
+});
+
+
 
