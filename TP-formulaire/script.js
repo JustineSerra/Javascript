@@ -155,8 +155,10 @@ document.getElementById("reset").addEventListener("click", function(){
 
     localStorage.removeItem("profil");
     //supprime la clé "profil" stockée dans le localStorage
+    
     document.cookie="derniereVisite=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
     //supprime le cookie "dernière visite" en le forçant à exprier instantanément
+    
     document.getElementById("profilForm").reset();
     //on réinitialise tous les champs du formulaire (vide)
 
