@@ -98,7 +98,17 @@ header {
     height:20px;
 }
 
+/*bouton supprimer*/
+
+.btn-delete {
+    background:white;
+    border:none;
+    color:black;
+    padding:5px 10px;
+    min-width:44px;
+}
 
 /*cookie*/
+
 
 /*responsive*/
