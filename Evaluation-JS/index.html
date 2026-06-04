@@ -9,7 +9,40 @@
 </head>
 <body>
     
+<header>
+    <h1>Todo List</h1>
+</header>
 
+<main class="container">
+    <section class="todo-section">
+        <form id="todo-form">
+            <div class="todo-class">
+                <input type="text" id="todo-input" placeholder="Ajouter une tâche" required>
+                <button type="submit" id="btn-add">Ajouter</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="filtre-section">
+        <div class="filtre">
+                <button class="btn-filtre" id="filtre-toutes">Toutes</button>
+                <button class="btn-filtre" id="filtre-active">A faire</button>
+                <button class="btn-filtre" id="filtre-completed">Achevées</button>
+        </div>
+    </section>
+
+    <section class="todo-list-section">
+        <ul id="todo-list" class="todo-list">
+        </ul>
+    </section>
+</main>
+
+<div id="cookie" class="cookie-banner">
+    <div class="cookie-content">
+        <p>Ce site utilise des cookies permettant son bon fonctionnement.</p>
+        <button id="btn-cookie-accept" class="btn-cookie">Accepter</button>
+    </div>
+</div>
 
 </body>
 </html>
