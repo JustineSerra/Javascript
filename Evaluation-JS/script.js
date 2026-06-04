@@ -73,9 +73,6 @@ function afficherTaches() {
                 } else {
                     liste.classList.remove('completed');
                 }
-                if (filtreActuel !== 'toutes') {
-                    afficherTaches();
-                }
         });
         //événement au clic sur la checkbox
 
@@ -95,12 +92,10 @@ function afficherTaches() {
             afficherTaches();
         });
 
-        liste.appendChild(checkbox);
-        liste.appendChild(texteTache);
-        liste.appendChild(btnSupprimer);
+        liste.append(checkbox, texteTache, btnSupprimer);
         //assemblage dans le "li"
 
-        todoList.appendChild(liste);
+        todoList.append(liste);
         //ajout du "li" dans le "ul"
     });
 }
