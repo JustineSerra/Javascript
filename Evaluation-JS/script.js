@@ -6,7 +6,7 @@ const filtreToutes = window.document.getElementById('filtre-toutes');
 const filtreActive = window.document.getElementById('filtre-active');
 const filtreCompleted = window.document.getElementById('filtre-completed');
 const todoList = window.document.getElementById('todo-list');
-const cookie = window.document.getElementById('cookie');
+const cookieBanner = window.document.getElementById('cookie');
 const btnCookie = window.document.getElementById('btn-cookie-accept');
 //reprise de tous les ID de la page HTML 
 
@@ -16,33 +16,34 @@ let filtreActuel = 'toutes';
 
 // FONCTIONS POUR LES COOKIES 
 
-function creerCookie(nom, valeur, jours) {
-    const date = new Date();
-    date.setTime(date.getTime() + (jours*24*60*60*1000));
-    //conversion des jours en millisecondes pour l'expiration
-    window.document.cookie = nom+ "=" + valeur + "; expires=" + date.toUTCString() + "; path=/; SameSite=Strict";
-    //injection de la chaîne du cookie dans l'objet "window.document"
-}
 function lireCookie(nom) { //fonction qui lit et vérifie si le cookie existe déjà
-    const nomCree= nom+"="
-    const listeCookies = window.document.cookie.split(';');
+    const cookies= document.cookie.split(";");
 
-    for(let i=0; i< listeCookies.length; i++) {
-        let c = listeCookies[i].trim();
-        if (c.indexOf(nomCree) ===0) {
-            return c.substring(nomCree.length, c.length);
+    for(let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith(nom+"=")) {
+            return cookie.substring(nom.length+1)
         }
     }
     return null; //retourne null si le cookie n'existe pas
 }
 
-if (lireCookie('rgpd_consent')=== 'true') { 
-    cookie.classList.add('hidden'); //si le cookie existe et vaut "true", on cache le bandeau
+if (lireCookie('rgpd_consent') === 'true') { 
+    cookieBanner.classList.add('hidden'); //si le cookie existe et vaut "true", on cache le bandeau
 } else {
-    cookie.classList.remove('hidden'); //dans le cas contraire, on s'assure qu'il est visible
+    cookieBanner.classList.remove('hidden');
 }
 
 btnCookie.addEventListener('click',() => { //évenement quand on clique sur Accepter
-    creerCookie('rgpd_consent', 'true', 30); //création du cookie pour 30 jours
-    cookie.classList.add('hidden');
+    document.cookie ="rgpd_consent=true; max-age=" + (60*60*24*30) + "; path=/"; //création du cookie pour 30 jours
+    cookieBanner.classList.add('hidden');
 });
+
+function sauvegarderTaches() {
+    window.localStorage.setItem('taches', JSON.stringify(taches));
+}
+//fonction pour sauvegarder le tableau dans le localStorage
+
+function afficherTaches() {
+
+}

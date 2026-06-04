@@ -17,7 +17,7 @@
     <div class="todo-div">
         <form id="todo-form">
             <div class="todo-class">
-                <input type="text" id="todo-input" placeholder="Ajouter une tâche" required>
+                <input type="text" id="todo-input" placeholder="Ajouter une tâche" required minlength="1">
                 <button type="submit" id="btn-add">Ajouter</button>
             </div>
         </form>
@@ -25,7 +25,7 @@
 
     <div class="filtre-div">
         <div class="filtre">
-                <button class="btn-filtre" id="filtre-toutes">Toutes</button>
+                <button class="btn-filtre active" id="filtre-toutes">Toutes</button>
                 <button class="btn-filtre" id="filtre-active">A faire</button>
                 <button class="btn-filtre" id="filtre-completed">Faites</button>
         </div>
