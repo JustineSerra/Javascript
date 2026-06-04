@@ -42,9 +42,40 @@ header {
 #todo-input {
     flex:1;
     padding:10px;
+    border-radius:5px;
+    border:none;
 }
 
 #btn-add {
     padding:10px 5px;
+    background:#e9904b;
+    color:white;
+    border:none; /*supprime la bordure présente*/
+    border-radius:5px; /*ajoute des bords arrondis au bouton*/
 }
 
+/*filtre*/
+
+.filtre {
+    display:flex;
+    justify-content: center; /*boutons des filtres centrés*/
+    gap:10px; /*espace entre les filtres*/
+
+}
+
+.btn-filtre {
+    padding:5px 5px;
+    background:white;
+    border:none;
+}
+
+.btn-filtre.active {
+    background:rgb(0, 0, 0); /*le filtre sélectionné est noir*/
+    color:white;
+}
+
+/*liste*/
+
+/*cookie*/
+
+/*responsive*/
