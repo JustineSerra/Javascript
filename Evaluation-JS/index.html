@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evaluation JS : Application Todo List avec persistance & RGPD </title>
-    <script src="index.js" defer></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,27 +14,27 @@
 </header>
 
 <main class="container">
-    <section class="todo-section">
+    <div class="todo-div">
         <form id="todo-form">
             <div class="todo-class">
                 <input type="text" id="todo-input" placeholder="Ajouter une tâche" required>
                 <button type="submit" id="btn-add">Ajouter</button>
             </div>
         </form>
-    </section>
+    </div>
 
-    <section class="filtre-section">
+    <div class="filtre-div">
         <div class="filtre">
                 <button class="btn-filtre" id="filtre-toutes">Toutes</button>
                 <button class="btn-filtre" id="filtre-active">A faire</button>
-                <button class="btn-filtre" id="filtre-completed">Achevées</button>
+                <button class="btn-filtre" id="filtre-completed">Faites</button>
         </div>
-    </section>
+    </div>
 
-    <section class="todo-list-section">
+    <div class="todo-list-div">
         <ul id="todo-list" class="todo-list">
         </ul>
-    </section>
+    </div>
 </main>
 
 <div id="cookie" class="cookie-banner">
