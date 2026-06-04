@@ -1,0 +1,50 @@
+/*base*/
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family:'Times New Roman', Times, serif;
+    font-size:20px; /*taille de police*/
+    background: #b86fda; /*fond violet*/
+    color:rgb(253, 253, 253); /*police en blanc*/
+    line-height:2; /*espace entre les lignes*/
+}
+
+/*header*/
+
+header {
+    text-align:center; /*centre le texte sur la page*/
+    padding:20px; /*zone de remplissage sur les 4 côtés*/
+    background: #6c9fec; /*fond du header en bleu*/
+    color:white;
+}
+
+/*layout principal*/
+
+.container {
+    max-width: 800px;
+    margin:20px auto; /*espace entre le container et le header*/
+    padding:20px;
+}
+
+/*formulaire*/
+
+.todo-class {
+    display:flex;
+    gap:5px; /*espace entre le bloc Ajouter une tâche et le bouton Ajouter*/
+    margin-bottom:15px; /*espace avec les 3 boutons filtre*/
+}
+
+#todo-input {
+    flex:1;
+    padding:10px;
+}
+
+#btn-add {
+    padding:10px 5px;
+}
+
