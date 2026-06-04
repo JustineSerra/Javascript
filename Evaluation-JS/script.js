@@ -45,5 +45,101 @@ function sauvegarderTaches() {
 //fonction pour sauvegarder le tableau dans le localStorage
 
 function afficherTaches() {
+    todoList.innerHTML=''; //on vide la liste HTML pour éviter les doublons
 
+    const tachesFiltrees = taches.filter(tache=> {
+        if (filtreActuel === 'active') return !tache.fait;
+        if (filtreActuel === 'completed') return tache.fait;
+        return true;
+    });
+
+    tachesFiltrees.forEach(tache=> {
+        const liste = document.createElement('li');
+        liste.className= 'todo-item';
+        if (tache.fait) {
+            liste.classList.add('completed');
+        }
+
+        const checkbox = document.createElement('input');
+        checkbox.type='checkbox';
+        checkbox.checked=tache.fait; //cochée si la tâche est faite
+        //création de la checkbox
+
+        checkbox.addEventListener('change', () => {
+            tache.fait = checkbox.checked;
+            sauvegarderTaches();
+                if (tache.fait) {
+                    liste.classList.add('completed')
+                } else {
+                    liste.classList.remove('completed');
+                }
+                if (filtreActuel !== 'toutes') {
+                    afficherTaches();
+                }
+        });
+        //événement au clic sur la checkbox
+
+
+        const texteTache = document.createElement('span');
+        texteTache.textContent = tache.texte;
+        //création du texte
+
+        const btnSupprimer=document.createElement('button');
+        btnSupprimer.textContent = 'Supprimer';
+        btnSupprimer.className = 'btn-delete';
+        //création du bouton supprimer
+
+        btnSupprimer.addEventListener('click', () => {
+            taches = taches.filter(t => t.id !== tache.id);
+            sauvegarderTaches();
+            afficherTaches();
+        });
+
+        liste.appendChild(checkbox);
+        liste.appendChild(texteTache);
+        liste.appendChild(btnSupprimer);
+        //assemblage dans le "li"
+
+        todoList.appendChild(liste);
+        //ajout du "li" dans le "ul"
+    });
 }
+
+// GESTION DU FORMULAIRE 
+
+todoForm.addEventListener('submit', (e) => {
+    e.preventDefault(); //empêche le rechargement de la page de manière native
+
+    const texte = todoInput.value.trim();
+    if (texte==='') return; //sécurité anti chaine vide
+
+    const nouvelleTache = {
+        id : Date.now(),
+        texte : texte,
+        fait: false
+    };
+
+    taches.push(nouvelleTache);
+    sauvegarderTaches();
+    afficherTaches();
+
+    todoInput.value=''; //champ de saisie réinitialisé
+});
+
+//GESTION DES BOUTONS DE FILTRE
+
+function gererFiltre (boutonClique, valeurFiltre) {
+    [filtreToutes, filtreActive, filtreCompleted].forEach(btn=>btn.classList.remove('active'));
+    boutonClique.classList.add('active');
+    filtreActuel = valeurFiltre;
+    afficherTaches();
+}
+
+filtreToutes.addEventListener('click', () => gererFiltre(filtreToutes, 'toutes'));
+filtreActive.addEventListener('click', () => gererFiltre(filtreActive, 'active'));
+filtreCompleted.addEventListener('click', () => gererFiltre(filtreCompleted, 'completed'));
+
+afficherTaches();
+//appel initial
+
+});
