@@ -29,14 +29,22 @@ header {
     max-width: 800px;
     margin:20px auto; /*espace entre le container et le header*/
     padding:20px;
+    width:90%;
 }
 
 /*formulaire*/
 
 .todo-class {
     display:flex;
-    gap:5px; /*espace entre le bloc Ajouter une tâche et le bouton Ajouter*/
+    align-items:center;
+    justify-content: center;
+    gap:10px; /*espace entre le bloc Ajouter une tâche et le bouton Ajouter*/
     margin-bottom:15px; /*espace avec les 3 boutons filtre*/
+    flex-wrap:wrap;
+}
+
+.todo-class label {
+    white-space:nowrap;
 }
 
 #todo-input {
@@ -84,12 +92,13 @@ header {
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:10px;
+    padding:15px;
     margin-bottom:0;
+    margin-top:10px;
 }
 
 .todo-item.completed span {
-    text-decoration: line-through;
+    text-decoration: line-through; /*tache barrée après l'avoir cochée*/
     opacity:0.5;
 }
 
@@ -102,13 +111,42 @@ header {
 
 .btn-delete {
     background:white;
-    border:none;
+    border:none; /*aucune bordure sur le bouton*/
     color:black;
-    padding:5px 10px;
+    padding:5px 10px; /*taille du bouton Supprimer*/
     min-width:44px;
 }
 
 /*cookie*/
 
+.cookie-banner {
+    position:fixed; /*positionne les cookies en bas de page*/
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgb(231, 176, 94);
+    padding:15px; /*espace du bloc cookie*/
+    display:flex;
+    justify-content: center;
+}
+
+.cookie-content {
+    display:flex;
+    gap:5px;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+.btn-cookie {
+    padding:5px 5px;
+    border:none;
+    color:black;
+    min-width:44px;
+
+}
+
+.hidden {
+    display:none;
+}
 
 /*responsive*/
